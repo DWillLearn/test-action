@@ -1,0 +1,29 @@
+name: Test Diff Poetry Lock
+
+on:
+  pull_request:
+    paths:
+      - 'poetry.lock'
+
+jobs:
+  diff-poetry-lock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Diff poetry.lock
+        uses: DWillLearn/diff-poetry-lock@main

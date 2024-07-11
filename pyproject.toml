@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "example-project"
+version = "0.1.0"
+description = "An example project to test GitHub Actions"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2"
